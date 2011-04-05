@@ -4,7 +4,6 @@ roxy: clean src/DESCRIPTION src/R/*.R
 	rm -f pkg/man/*.Rd
 	Rscript --vanilla -e "library (roxygen); roxygenize (\"src\", \"pkg\", use.Rd2 = TRUE)" 
 	rsync -av --delete src/R/*.R pkg/R/
-	rm -rf pkg
 	rm -rf pkg/inst
 
 src/DESCRIPTION:
