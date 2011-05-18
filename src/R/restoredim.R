@@ -20,8 +20,8 @@
 ##' @param fromend if \code{TRUE}, numeric \code{usedim} are counted from the end, see details.
 ##' @param drop should 1d arrays drop to vectors?
 ##' @return an array
-##' @author Claudia
-##' @rdname makeNd.Rd
+##' @author Claudia Beleites
+##' @rdname makeNd
 ##' @export
 ##' @examples
 ##'
