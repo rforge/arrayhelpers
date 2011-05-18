@@ -12,6 +12,6 @@ URL: http://arrayhelpers.r-forge.r-project.org/
 Date: 2011-05-18
 Depends: svUnit, methods
 Collate: 'apply.R' 'arrayhelpers.R' 'colSums.R' 'countrows.R'
-    'delold.R' 'dropdimnames.R' 'ensuredim.R' 'groupsum.R' 'makeNd.R'
-    'ndim.R' 'numericindices.R' 'restoredim.R' 'rowsum.R' 'stack.R'
-    'ta.R' 'validate.R'
+    'delold.R' 'dropdimnames.R' 'ensuredim.R' 'groupsum.R' 'init.R'
+    'makeNd.R' 'ndim.R' 'numericindices.R' 'restoredim.R' 'rowsum.R'
+    'stack.R' 'ta.R' 'validate.R'
