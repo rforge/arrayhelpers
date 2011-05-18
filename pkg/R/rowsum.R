@@ -33,7 +33,8 @@
 ##' @seealso \code{\link[base]{rowsum}}
 ##' @keywords array algebra arith
 ##' @docType methods
+##' @rdname rowsum
 ##' @export
 setMethod ("rowsum", signature = c (x = "array"), .rowsum)
 
-#TODO: test
+#TODO: test, examples

@@ -2,17 +2,45 @@
 \alias{makeNd}
 \title{Ensure/collapse an array into n dimensions and restore the old dimensions...}
 \usage{makeNd(a, N)
+restoredim(a, old, n=1, ..., usedim=TRUE, fromend=FALSE, drop=FALSE)
 }
 \description{Ensure/collapse an array into \code{n} dimensions and restore the old dimensions}
-\details{\code{nameNd} ensures a given number of dimensions:
+\details{\code{makeNd}: \code{nameNd} ensures a given number of dimensions:
 If \code{a} has less than \code{N} dimensions, new dimensions of length 1 are appended.
 If \code{a} has more than \code{N} dimensions, the supernumerary dimensions are collapsed onto
-the last dimension.}
-\value{N-dimensional array}
+the last dimension.
+
+\code{restoredim}: Attributes \code{old.dim} and \code{old.dimnames} are used by default. \code{restoredim} is the
+inverse of \code{makeNd}.
+
+Note that missing attributes as well as \code{old.dim = NULL} produce a (dimensionless)
+vector. This is also the case if \code{a} lost the \code{old.*} attributes during 
+computations like \code{as.numeric}, \code{c}, etc..
+
+\code{fromend} together with numeric \code{usedim} specifies dimensions counting from the
+end. E.g. \code{fromend = TRUE} and \code{usedim = 1 : 3} for an array to be restored to 10d
+means restoring dimensions 8 : 10. \code{fromend = TRUE} and \code{usedim = -(1 : 3)} restores
+dimensions 1 to 7.
+
+
+}
+\value{\code{makeNd}: N-dimensional array
+
+\code{restoredim}: an array
+
+
+}
 \author{Claudia Beleites}
 \arguments{\item{a}{an array (matrix, vector)}
 \item{N}{the desired number of dimensions, 0 to remove the \code{dim} and \code{dimnames}
 attributes (i.e. to create a vector).}
+\item{old}{list containing a list with (possibly) elements \code{dim}, \code{dimnames}, and
+\code{names}. The nth last element of this list is used.}
+\item{n}{how many makeNdim steps to go back?}
+\item{...}{ignored}
+\item{usedim}{use only the specified dimensions}
+\item{fromend}{if \code{TRUE}, numeric \code{usedim} are counted from the end, see details.}
+\item{drop}{should 1d arrays drop to vectors?}
 }
 \examples{v <- arrayhelpers:::v
 v
@@ -35,5 +63,11 @@ dim (makeNd (a, 0))
 makeNd (a,  2)          
 makeNd (a, -2)
 makeNd (a, -4)
-makeNd (a, 3)}
+makeNd (a, 3);a <- array (1 : 24, 4 : 3)
+a
+restoredim (makeNd (a, 0))
+
+x <- makeNd (a, 0)
+attr (x, "old")}
+\alias{restoredim}
 

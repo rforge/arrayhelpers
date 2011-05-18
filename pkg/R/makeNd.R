@@ -33,7 +33,7 @@
 ##' makeNd (a,  2)          
 ##' makeNd (a, -2)
 ##' makeNd (a, -4)
-##' makeNd (a, 3)
+##' makeNd (a, 3);
 ##' 
 makeNd <- function (a, N) {
    if (! all.equal (N, as.integer (N)))
