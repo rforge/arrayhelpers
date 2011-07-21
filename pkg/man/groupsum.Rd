@@ -1,7 +1,7 @@
 \name{groupsum}
 \alias{groupsum}
 \title{Extension of rowsum...}
-\usage{groupsum(x, group, dim=1, reorder=TRUE, na.rm=FALSE, ..., drop=!is.array(x))
+\usage{groupsum(x, group=NULL, dim=1, reorder=TRUE, na.rm=FALSE, ..., drop=!is.array(x))
 }
 \description{Extension of \code{rowsum}}
 \details{\code{groupsum}: \code{groupsum} extends \code{\link{rowsum}}: it allows \code{group} to be an array of the same shape

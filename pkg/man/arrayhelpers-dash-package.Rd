@@ -1,4 +1,4 @@
-\name{arrayhelpers-package}
+\name{arrayhelpers-dash-package}
 \alias{arrayhelpers-package}
 \alias{arrayhelpers-package}
 \title{Little helper functions to work with arrays...}

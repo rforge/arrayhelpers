@@ -28,7 +28,8 @@ it is over  dimensions \code{1 : dims}.}
 that are summed or averaged is set to  1. \code{TRUE} yield the same behaviour as
 \code{\link[base]{colSums}}}
 }
-\examples{a <- array (1 : 24, 4 : 2)
+\examples{
+a <- array (1 : 24, 4 : 2)
 a
 
 rowSums (a)
@@ -38,7 +39,8 @@ colSums (a)
 colSums (a, drop = FALSE)
 
 colSums (a, dim = 2)
-colSums (a, dim = 2, drop = FALSE)}
+colSums (a, dim = 2, drop = FALSE)
+}
 \alias{colSums.AsIs}
 \alias{colSums,array-method}
 \alias{colSums}

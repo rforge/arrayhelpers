@@ -2,7 +2,9 @@
 \alias{makeNd}
 \title{Ensure/collapse an array into n dimensions and restore the old dimensions...}
 \usage{makeNd(a, N)
-restoredim(a, old, n=1, ..., usedim=TRUE, fromend=FALSE, drop=FALSE)
+
+restoredim(a, old=NULL, n=1, ..., usedim=TRUE, fromend=FALSE, drop=FALSE)
+
 }
 \description{Ensure/collapse an array into \code{n} dimensions and restore the old dimensions}
 \details{\code{makeNd}: \code{nameNd} ensures a given number of dimensions:
@@ -42,7 +44,8 @@ attributes (i.e. to create a vector).}
 \item{fromend}{if \code{TRUE}, numeric \code{usedim} are counted from the end, see details.}
 \item{drop}{should 1d arrays drop to vectors?}
 }
-\examples{v <- arrayhelpers:::v
+\examples{
+v <- arrayhelpers:::v
 v
 makeNd (v, 1)
 dim (makeNd (v, 1))
@@ -63,11 +66,14 @@ dim (makeNd (a, 0))
 makeNd (a,  2)          
 makeNd (a, -2)
 makeNd (a, -4)
-makeNd (a, 3);a <- array (1 : 24, 4 : 3)
+makeNd (a, 3);
+
+a <- array (1 : 24, 4 : 3)
 a
 restoredim (makeNd (a, 0))
 
 x <- makeNd (a, 0)
-attr (x, "old")}
+attr (x, "old")
+}
 \alias{restoredim}
 

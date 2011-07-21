@@ -11,11 +11,13 @@
 \seealso{\code{\link[base]{t}}}
 \arguments{\item{x}{an array}
 }
-\examples{a <- array (1 : 24, 4:2)
+\examples{
+a <- array (1 : 24, 4:2)
 a
 ta (a)
 
 setMethod ("t", "array", ta)
 t (a)
-removeMethod ("t", "array")}
+removeMethod ("t", "array")
+}
 

@@ -1,4 +1,4 @@
-\name{arrayhelpers.unittest}
+\name{arrayhelpers-dot-unittest}
 \alias{arrayhelpers.unittest}
 \title{Run the unit tests...}
 \description{Run the unit tests}

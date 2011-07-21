@@ -2,7 +2,9 @@
 \alias{ensuredim}
 \title{Enforce array and convert to vector if appropriate...}
 \usage{ensuredim(x)
+
 drop1d(x, drop=TRUE)
+
 }
 \description{Enforce array and convert to vector if appropriate}
 \details{\code{ensuredim}: \code{ensuredim} turns vectors into 1d-arrays, and leaves arrays unchanged. \code{drop1d} is the

@@ -9,7 +9,9 @@
 \author{Claudia Beleites}
 \arguments{\item{a}{the array}
 }
-\examples{a <- arrayhelpers:::a
+\examples{
+a <- arrayhelpers:::a
 makeNd (a, 2)
-delold (makeNd (a, 2))}
+delold (makeNd (a, 2))
+}
 

@@ -2,8 +2,12 @@
 \alias{peek}
 \title{A little stack.}
 \usage{peek(x, an, n=1)
+
 pop(x, an, n=1)
-push (x, an) <- value}
+
+
+push (x, an) <- value
+}
 \description{A little stack.}
 \details{\code{peek}: TODO: implement as reference class?
 Note: \code{pop} only removes elements. To retrieve them, use \code{peek}.

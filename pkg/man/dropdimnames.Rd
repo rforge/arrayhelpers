@@ -2,7 +2,9 @@
 \alias{dropdimnames}
 \title{Drop dimnames if all elements are NULL...}
 \usage{dropdimnames(x)
+
 lon(l)
+
 }
 \description{Drop dimnames if all elements are \code{NULL}}
 \value{\code{dropdimnames}: object without empty dimnames
