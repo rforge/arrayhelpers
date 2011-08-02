@@ -19,7 +19,6 @@
 ##' @return array
 ##' @author Claudia Beleites
 ##' @seealso \code{\link[base]{apply}}
-## ' @export 
 applycons <- function (X, MARGIN, FUN, ...){
     FUN <- match.fun(FUN)
 
