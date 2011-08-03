@@ -1,0 +1,2 @@
+library (arrayhelpers)
+arrayhelpers.unittest ()
