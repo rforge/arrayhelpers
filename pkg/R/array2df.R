@@ -30,6 +30,7 @@
 ##' @export
 ##' @keywords array manip
 ##' @seealso \code{\link[utils]{stack}}
+##' @include arrayhelpers.R
 ##' @examples
 ##' a <- arrayhelpers:::a
 ##' a
