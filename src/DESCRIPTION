@@ -9,6 +9,7 @@ Date: 2011-08-03
 License: GPL
 LazyLoad: yes
 LazyData: yes
-Depends: svUnit, methods
+Depends: methods
+Suggests: svUnit
 URL: http://arrayhelpers.r-forge.r-project.org/
 
