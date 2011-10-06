@@ -4,13 +4,9 @@
 \usage{groupsum(x, group=NULL, dim=1, reorder=TRUE, na.rm=FALSE, ..., drop=!is.array(x))
 }
 \description{Extension of \code{rowsum}}
-\details{\code{groupsum}: \code{groupsum} extends \code{\link{rowsum}}: it allows \code{group} to be an array of the same shape
-as \code{x}.
-
-}
-\value{\code{groupsum}: like \code{\link[base]{rowsum}}, but further dimensions of the array are preserved.
-
-}
+\details{\code{groupsum} extends \code{\link{rowsum}}: it allows \code{group} to be an array of the same shape
+as \code{x}.}
+\value{like \code{\link[base]{rowsum}}, but further dimensions of the array are preserved.}
 \author{Claudia Beleites}
 \seealso{\code{\link[base]{rowsum}} \code{\link{rowsum}}}
 \keyword{array}
@@ -24,6 +20,4 @@ as \code{x}.
 \item{...}{ignored}
 \item{drop}{should 1d arrays drop to vectors?}
 }
-\alias{groupsum-methods}
-\alias{groupsum}
 

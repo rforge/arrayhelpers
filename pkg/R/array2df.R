@@ -72,7 +72,7 @@ array2df <- function (x, levels, matrix = FALSE,
   levels [i] <- dn [i]
   
   ## get colnames from dimnames of x
-  colnames <- names (dimnames (x))
+  colnames <- names (dn)
   if (! is.null (names (levels))){
     i <- nzchar (names (levels))
     colnames [i] <- names (levels) [i]
@@ -112,8 +112,12 @@ array2df <- function (x, levels, matrix = FALSE,
     }
     
   }
+
+  if (!is.null (colnames))
+    colnames (df) <- c (label.x, colnames [idim])
+  else
+    colnames (df) <- c (label.x, paste ("d", idim, sep = ""))
   
-  colnames (df) <- c (label.x, colnames [idim])
   df
 }
 
@@ -123,13 +127,23 @@ test (array2df) <- function (){
   x <- array (1:24, 4:1)
   checkEquals (array2df (x),
                structure (list (x = 1:24,
-                                `NA` = rep (1:4, 6),
-                                `NA` = rep (rep (1:3, each = 4), 2),
-                                `NA` = rep (1:2, each = 12),
-                                `NA` = rep (1, 24)),
-                                .Names = c("x", NA, NA, NA, NA),
+                                d1 = rep (1:4, 6),
+                                d2 = rep (rep (1:3, each = 4), 2),
+                                d3 = rep (1:2, each = 12),
+                                d4 = rep (1, 24)),
+                                .Names = c("x", "d1", "d2", "d3", "d4"),
                                 row.names = c(NA, -24L),
                                 class = "data.frame")
+               )               
+
+  checkEquals (array2df (x, matrix = TRUE), 
+               structure (c (1:24,
+                             rep (1:4, 6),
+                             rep (rep (1:3, each = 4), 2),
+                             rep (1:2, each = 12),
+                             rep (1, 24)),
+                          .Dim = c(24L, 5L),
+                          .Dimnames = list(NULL, c("x", "d1", "d2", "d3", "d4")))
                )               
                
   checkEquals (array2df (a), structure(list(a = 1:24, rows = structure(c(1L, 2L, 3L, 4L, 1L, 
