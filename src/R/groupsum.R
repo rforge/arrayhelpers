@@ -23,14 +23,20 @@ groupsum <- function(x, group = NULL, dim = 1L, reorder=TRUE, na.rm = FALSE, ...
 
   x <- makeNd (x, 2)
   old <- attr (x, "old") [[1]]
+  x <- pop (x, "old")
+  
 
   if (is.null (group)){                 # almost no gain...
     x   <- colSums (x, na.rm = TRUE, drop = FALSE)
-  } else if (length (group) == nrow (x)) {
-    x   <- rowsum  (x, group = group, na.rm = TRUE)
+  } else if (is.null (dim (group))) {
+    if (length (group) == nrow (x)) {
+      x   <- rowsum  (x, group = group, na.rm = TRUE)
+    } else {
+      stop ("wrong length: group ", length (group), " dim: ", nrow (x))
+    }   
   } else if (all (dim (group) == dim (x))) {
     stop ("grouping factors of size dim (p) not yet implemented.")
-  }
+  } 
 
   old$dim [1] <- nrow (x)
   old$dimnames [1] <- list (rownames (x))
@@ -42,8 +48,22 @@ groupsum <- function(x, group = NULL, dim = 1L, reorder=TRUE, na.rm = FALSE, ...
 
   drop1d (x, drop = drop)
 }
-##' @rdname groupsum
-##' @export
-setGeneric ("groupsum")
 
-#TODO: test
+test (groupsum) <- function (){
+  groups <- c(2, 1, 2)
+  checkEquals (groupsum (a, group = groups, dim = 2),
+               structure(c(5 : 8, (5 : 8) * 2L, 17 : 20, (17 : 20) * 2L), 
+                           .Dim = c(4L, 2L, 2L),
+                           .Dimnames = structure(list(rows = letters [1:4],
+                             columns = c("1", "2"),
+                             d3 = c("1", "2")),
+                             .Names = c("rows", "columns", "d3"))))
+
+  b <- a
+  dim (b) <- c (2, 2, 3, 2)
+  g <- groupsum (b, group = groups, dim = 3)
+
+  checkEquals (b [,,1,] + b [,,3,], g [,,2,])
+  checkEquals (b [,,2,]           , g [,,1,])
+  
+}
