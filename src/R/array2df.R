@@ -72,7 +72,7 @@ array2df <- function (x, levels, matrix = FALSE,
   levels [i] <- dn [i]
   
   ## get colnames from dimnames of x
-  colnames <- names (dimnames (x))
+  colnames <- names (dn)
   if (! is.null (names (levels))){
     i <- nzchar (names (levels))
     colnames [i] <- names (levels) [i]
@@ -112,8 +112,10 @@ array2df <- function (x, levels, matrix = FALSE,
     }
     
   }
+
+  if (!is.null (colnames))
+    colnames (df) <- c (label.x, colnames [idim])
   
-  colnames (df) <- c (label.x, colnames [idim])
   df
 }
 
