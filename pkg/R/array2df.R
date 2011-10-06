@@ -55,15 +55,17 @@ array2df <- function (x, levels, matrix = FALSE,
     label.x = deparse (substitute (x)), na.rm = FALSE) {
 
   dims <- dim (x)
+  dn <- dimnames (x)
+  if (is.null (dn))
+   dn <- lapply (dims, function (x) NULL)
 
   ## prepare levels if not given
   if (missing (levels)){
-    levels <- dimnames (x)
+    levels <- dn
     levels [sapply (levels, is.null)] <- NA
   }
   
   ## TRUE as abbreviation for "use dimnames"
-  dn <- dimnames (x)
   i <- sapply (dn, is.null)
   dn [i] <- lapply (dims [i], seq_len)
   i <- sapply (levels, isTRUE)
@@ -116,6 +118,20 @@ array2df <- function (x, levels, matrix = FALSE,
 }
 
 test (array2df) <- function (){
+
+  ## no dimnames
+  x <- array (1:24, 4:1)
+  checkEquals (array2df (x),
+               structure (list (x = 1:24,
+                                `NA` = rep (1:4, 6),
+                                `NA` = rep (rep (1:3, each = 4), 2),
+                                `NA` = rep (1:2, each = 12),
+                                `NA` = rep (1, 24)),
+                                .Names = c("x", NA, NA, NA, NA),
+                                row.names = c(NA, -24L),
+                                class = "data.frame")
+               )               
+               
   checkEquals (array2df (a), structure(list(a = 1:24, rows = structure(c(1L, 2L, 3L, 4L, 1L, 
     2L, 3L, 4L, 1L, 2L, 3L, 4L, 1L, 2L, 3L, 4L, 1L, 2L, 3L, 4L, 1L, 
     2L, 3L, 4L), .Label = c("a", "b", "c", "d"), class = "factor"), 

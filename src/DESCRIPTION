@@ -4,8 +4,8 @@ Title: Convenience functions for arrays
 Description: Some convenient functions to work with arrays
 Maintainer: C. Beleites <Claudia.Beleites@ipht-jena.de>
 Author: C. Beleites <Claudia.Beleites@ipht-jena.de>
-Version: 0.75-20110929
-Date: 2011-09-29
+Version: 0.75-20111006
+Date: 2011-10-06
 License: GPL
 LazyLoad: yes
 LazyData: yes
