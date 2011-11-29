@@ -17,6 +17,7 @@ src/R/*.R:
 	touch $@
 
 clean:
+	rm -f arrayhelpers*.tar.gz
 	rm -f src/R/#*.R#
 	rm -f src/R/*.bak
 	rm -f src/R/*.R~
@@ -24,24 +25,24 @@ clean:
 	rm -f pkg/*/man/.*.Rd
 	find -maxdepth 4 -name ".Rhistory" -delete
 
-check: 
-	R CMD check pkg --vanilla && rm -rf pkg.Rcheck 
+check: build
+	R CMD check arrayhelpers_*.tar.gz
 
-install:
+install: 
 		sudo R CMD INSTALL pkg	
 
 test: install
 	Rscript --vanilla -e "library (arrayhelpers); arrayhelpers.unittest ()"
 
-build: roxy
+build: clean roxy
 	R CMD build pkg --vanilla
 
-devbuild: roxy
+devbuild: clean roxy
 	~/r-devel/bin/R CMD build pkg --vanilla
 
-devcheck: roxy
-	~/r-devel/bin/R CMD check pkg --vanilla
+devcheck: devbuild
+	~/r-devel/bin/R CMD check arrayhelpers_*.tar.gz
 
-devtest: roxy
-	~/r-devel/bin/R CMD INSTALL pkg
+devtest: devbuild 
+	~/r-devel/bin/R CMD INSTALL 
 	~/r-devel/bin/Rscript --vanilla -e "library (arrayhelpers); arrayhelpers.unittest ()"
