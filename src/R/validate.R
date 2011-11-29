@@ -7,7 +7,7 @@
 ##' @seealso  \link[svUnit]{svUnit} 
 ##' @export 
 arrayhelpers.unittest <- function (){
-  if (! require (svUnit)){
+  if (! require (svUnit, quietly = TRUE)){
     warning ("svUnit required to run the unit tests.")
     return (NA)
   }

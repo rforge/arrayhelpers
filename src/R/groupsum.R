@@ -49,7 +49,7 @@ groupsum <- function(x, group = NULL, dim = 1L, reorder=TRUE, na.rm = FALSE, ...
   drop1d (x, drop = drop)
 }
 
-test (groupsum) <- function (){
+.test (groupsum) <- function (){
   groups <- c(2, 1, 2)
   checkEquals (groupsum (a, group = groups, dim = 2),
                structure(c(5 : 8, (5 : 8) * 2L, 17 : 20, (17 : 20) * 2L), 

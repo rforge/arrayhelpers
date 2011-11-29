@@ -121,7 +121,7 @@ array2df <- function (x, levels, matrix = FALSE,
   df
 }
 
-test (array2df) <- function (){
+.test (array2df) <- function (){
 
   ## no dimnames
   x <- array (1:24, 4:1)

@@ -33,7 +33,7 @@
   colSums (unclass (x), ...)
 }
 
-test (.colSums) <- function (){
+.test (.colSums) <- function (){
   ao <- array (1:24, 4:2)
   
   for (d in 1 : 2){
@@ -149,7 +149,7 @@ test (.colSums) <- function (){
   rowMeans (unclass (x), ...)
 }
 
-test (.rowSums) <- function (){
+.test (.rowSums) <- function (){
   a <- array (1:24, 4:2)
   for (d in 1 : 2){
     default <- base::rowSums (a, dims = d)
@@ -165,7 +165,7 @@ test (.rowSums) <- function (){
   }
 }
 
-test (.rowMeans) <- function (){
+.test (.rowMeans) <- function (){
   a <- array (1:24, 4:2)
   for (d in 1 : 2){
     default <- base::rowMeans (a, dims = d)
@@ -181,7 +181,7 @@ test (.rowMeans) <- function (){
   }
 }
 
-test (.colMeans) <- function (){
+.test (.colMeans) <- function (){
   a <- array (1:24, 4:2)
   for (d in 1 : 2){
     default <- base::colMeans (a, dims = d)
@@ -197,13 +197,13 @@ test (.colMeans) <- function (){
   }
 }
 
-# ##' @nord
+##' @noRd
 setGeneric ("colSums")
-##' @nord
+##' @noRd
 setGeneric ("colMeans")
-##' @nord
+##' @noRd
 setGeneric ("rowSums")
-##' @nord
+##' @noRd
 setGeneric ("rowMeans")
 
 ##' Row and column sums and means for numeric arrays. 
@@ -243,7 +243,7 @@ setGeneric ("rowMeans")
 ##' colSums (a, dim = 2)
 ##' colSums (a, dim = 2, drop = FALSE)
 ##'
-setMethod ("colSums", signature = c ("matrix"), .colSums) 
+setMethod ("colSums", signature = c (x = "matrix"), .colSums) 
 # colSums.matrix <- .colSums              # I still get base::colSums :-(
 
 ##' @rdname colSums

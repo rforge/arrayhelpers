@@ -3,14 +3,16 @@
 ##' @docType package
 ##' 
 {
-  if (!require (svUnit)){
+
+  if (require (svUnit, quietly = TRUE)){
+    `.test<-` <- svUnit::`test<-`
+  } else {
     `.test<-` <- function (f, value) {
       attr (f, "test") <- value
       f
     }
-  } else {
-    `.test<-` <- `test<-`
   }
+
     
 ### test data
     ## vector
@@ -31,5 +33,4 @@
 }
 
 
- 
 

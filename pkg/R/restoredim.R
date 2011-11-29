@@ -11,7 +11,6 @@
 ##' end. E.g. \code{fromend = TRUE} and \code{usedim = 1 : 3} for an array to be restored to 10d
 ##' means restoring dimensions 8 : 10. \code{fromend = TRUE} and \code{usedim = -(1 : 3)} restores
 ##' dimensions 1 to 7.
-##' @param a an array
 ##' @param old list containing a list with (possibly) elements \code{dim}, \code{dimnames}, and
 ##' \code{names}. The nth last element of this list is used.
 ##' @param n how many makeNdim steps to go back?
@@ -56,7 +55,6 @@ restoredim <- function (a, old = NULL, n = 1L, ...,
   drop1d (a, drop = drop)
 }
 
-##' @nord
 .test (restoredim) <- function (){
   checkIdentical (a, restoredim (makeNd (a,  5)))
   checkIdentical (a, restoredim (makeNd (a,  0)))

@@ -22,7 +22,6 @@
 ##' rowsum for arrays
 ##'
 ##' This function extends the base function \code{\link[base]{rowsum}}.
-##' @usage \S4method{rowsum}{array}(x, group, reorder=TRUE, na.rm = FALSE, ...) 
 ##' @param x array to be \code{rowsum}med
 ##' @param group grouping variable (integer or factor) indicating groups of samples. \code{}
 ##' @param reorder should the groups be ordered? see \code{\link[base]{rowsum}}

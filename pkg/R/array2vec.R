@@ -28,6 +28,7 @@
 ##' 
 ##' arr[c(2, 2, 2)] ## indexing with a vector
 ##' arr[2]
+##' 
 array2vec <- function (iarr, dim){
   if (!is.matrix (iarr))
     dim (iarr) <- c(1, length (iarr))
