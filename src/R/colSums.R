@@ -243,56 +243,56 @@ setGeneric ("rowMeans")
 ##' colSums (a, dim = 2)
 ##' colSums (a, dim = 2, drop = FALSE)
 ##'
-setMethod ("colSums", signature = c (x = "matrix"), .colSums) 
+setMethod ("colSums", signature = signature (x = "matrix"), .colSums) 
 # colSums.matrix <- .colSums              # I still get base::colSums :-(
 
 ##' @rdname colSums
 ##' @export
 colSums.AsIs <- .unclasscolSums
-# setMethod ("colSums", signature = c (x = "AsIs"), .unclasscolSums)
+# setMethod ("colSums", signature = signature (x = "AsIs"), .unclasscolSums)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("colSums", signature = c (x = "array"), .colSums)
+setMethod ("colSums", signature = signature (x = "array"), .colSums)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("colMeans", signature = c (x = "matrix"), .colMeans)
+setMethod ("colMeans", signature = signature (x = "matrix"), .colMeans)
 
 ##' @rdname colSums
 ##' @export
 colMeans.AsIs <- .unclasscolMeans
-##setMethod ("colMeans", signature = c (x = "AsIs"), .unclasscolMeans)
+##setMethod ("colMeans", signature = signature (x = "AsIs"), .unclasscolMeans)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("colMeans", signature = c (x = "array"), .colMeans)
+setMethod ("colMeans", signature = signature (x = "array"), .colMeans)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("rowSums", signature = c (x = "matrix"), .rowSums)
+setMethod ("rowSums", signature = signature (x = "matrix"), .rowSums)
 
 ##' @rdname colSums
 ##' @export
 rowSums.AsIs <- .unclassrowSums
-#setMethod ("rowSums", signature = c (x = "AsIs"), .unclassrowSums)
+#setMethod ("rowSums", signature = signature (x = "AsIs"), .unclassrowSums)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("rowSums", signature = c (x = "array"), .rowSums)
+setMethod ("rowSums", signature = signature (x = "array"), .rowSums)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("rowMeans", signature = c (x = "matrix"), .rowMeans)
+setMethod ("rowMeans", signature = signature (x = "matrix"), .rowMeans)
 
 ##' @rdname colSums
 ##' @export
 rowMeans.AsIs <- .unclassrowMeans
-##setMethod ("rowMeans", signature = c (x = "AsIs"), .unclassrowMeans)
+##setMethod ("rowMeans", signature = signature (x = "AsIs"), .unclassrowMeans)
 
 ##' @rdname colSums
 ##' @export
-setMethod ("rowMeans", signature = c (x = "array"), .rowMeans)
+setMethod ("rowMeans", signature = signature (x = "array"), .rowMeans)
 
 testAsIs <- function (){
   methods <- c("colSums", "colMeans", "rowSums", "rowMeans")
