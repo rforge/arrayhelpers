@@ -20,7 +20,8 @@
 ##' @author Claudia Beleites
 ##' @seealso \code{\link[base]{apply}}
 ##' @include arrayhelpers.R
-applycons <- function (X, MARGIN, FUN, ...){
+##' @noRd
+.applycons <- function (X, MARGIN, FUN, ...){
     FUN <- match.fun(FUN)
 
     ## Ensure that X is an array object
