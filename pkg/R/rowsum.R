@@ -34,6 +34,6 @@
 ##' @docType methods
 ##' @rdname rowsum
 ##' @export
-setMethod ("rowsum", signature = c (x = "array"), .rowsum)
+setMethod ("rowsum", signature = signature (x = "array"), .rowsum)
 
 #TODO: test, examples
