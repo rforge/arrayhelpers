@@ -28,6 +28,7 @@
 ##' columns. 
 ##' @author Claudia Beleites
 ##' @export
+##' @include arrayhelpers.R
 ##' @keywords array manip
 ##' @seealso \code{\link[utils]{stack}}
 ##' @include arrayhelpers.R
