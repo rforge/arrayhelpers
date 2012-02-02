@@ -1,6 +1,8 @@
 ##' number of dimensions
 ##'
 ##' @param a vector, matrix, or array
+##' @param ... indexing instructions. The names of the arguments specify the dimension 
+##'    (i = 1st, j = 2nd, ...). The indexing expressions are the same as for \code{\link[base]{[}}
 ##' @return integer: length of dim attribute
 ##' @author Claudia Beleites
 ##' @export 
