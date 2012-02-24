@@ -1,31 +1,21 @@
-#  From base/R/colSums.R
+##' @include arrayhelpers.R
+##  From base/R/colSums.R
 .colSums <- function (x, na.rm = FALSE, dims = 1L, drop = TRUE) {
   if (length (dim (x)) < 2)
     x <- as.matrix (x)
-  d  <- dim (x)
 
-  if (dims < 1 || dims > length (d) - 1) stop("invalid 'dims'")
+  z <- base:::colSums (x = x, na.rm = na.rm, dims = dims)
 
-  nrow <- prod (head (d,  dims))
-  ncol <- prod (tail (d, -dims))
-  
-  z <- if (is.complex (x))
-           .Internal (colSums (Re (x), nrow, ncol, na.rm)) +
-      1i * .Internal (colSums (Im (x), nrow, ncol, na.rm))
-  else     .Internal (colSums (    x,  nrow, ncol, na.rm))
+  if (! drop){
+    d  <- dim (x)
+    d  [1L : dims] <- 1L
 
-  d  <- tail (d,            -dims)
-  dn <- tail (dimnames (x), -dims)
-  if (drop){
-    z <- structure (z, .Dim      =      d,
-                       .Dimnames = lon (dn))
-    z <- drop1d (z)
-  } else {                              # ! drop
-    z <- structure (z,
-                    .Dim      =      c (rep (1,           dims), d),
-                    .Dimnames = lon (c (rep (list (NULL), dims), dn)))
+    dn <- dimnames (x)
+    dn [1L : dims] <- list (NULL)
+    
+    z <- structure (z, .Dim =  d, .Dimnames = lon (dn))
   }
-
+  
   z
 }
 
@@ -56,33 +46,51 @@
   }
 }
 
-## TODO: Rest wie colSums
 ## TODO: Tests for AsIs, matrix
-.colMeans <- function(x, na.rm = FALSE, dims = 1L, drop = TRUE)
-{
-    if(is.data.frame(x)) x <- as.matrix(x)
-    if(!is.array(x) || length(dn <- dim(x)) < 2L)
-        stop("'x' must be an array of at least two dimensions")
-    if(dims < 1L || dims > length(dn) - 1L)
-        stop("invalid 'dims'")
-    n <- prod(dn[1L:dims])
-    dn [1L : dims] <- 1L
-    z <- if(is.complex(x))
-        .Internal(colMeans(Re(x), n, prod(dn), na.rm)) +
-            1i * .Internal(colMeans(Im(x), n, prod(dn), na.rm))
-    else .Internal(colMeans(x, n, prod(dn), na.rm))
+.colMeans <- function(x, na.rm = FALSE, dims = 1L, drop = TRUE){
+  
+  if (length (dim (x)) < 2)
+    x <- as.matrix (x)
 
-    if (drop){
-      if(length(dn) > dims + 1L) {
-        dim(z) <- dn[-(1L:dims)]   
-        dimnames(z) <- dimnames(x)[-(1L:dims)]
-      } else names(z) <- dimnames(x)[[dims+1]]
-    } else {
-      dim(z) <- dn
-      dimnames(z) <- dimnames(x)
-    }
-    z
+  z <- base:::colMeans (x, na.rm = na.rm, dims = dims)
+
+  if (! drop){
+    d  <- dim (x)
+    d  [1L : dims] <- 1L
+    
+
+    dn <- dimnames (x)
+    dn [1L : dims] <- list (NULL)
+    
+    z <- structure (z, .Dim =  d, .Dimnames = lon (dn))
+  }
+  
+  z
 }
+
+.test (.colMeans) <- function (){
+  ao <- array (1:24, 4:2)
+  
+  for (d in 1 : 2){
+    default <- base::colMeans (a, dims = d)
+    drop <- colMeans (a, dims = d, drop = TRUE)
+    nodrop <- colMeans (a, dims = d, drop = FALSE)
+
+    checkEquals (default, drop, sprintf ("base version ./. drop = TRUE, dim = %i", d))
+    checkEqualsNumeric (c (default), c (nodrop), sprintf ("drop = TRUE ./. FALSE, dim = %i", d))
+
+    dd <- dim (default)
+    if (is.null (dd)) dd <- length (default)
+    checkEquals (dim (nodrop) [-(1 : d)], dd, sprintf ("result dimensions, d = %i", d))
+    checkTrue (all (sapply (dimnames (nodrop) [1 : d], is.null)))
+    checkEquals (dimnames (nodrop) [(d + 1) : ndim (nodrop)],
+                 dimnames (a)      [(d + 1) : ndim (a)     ])
+    nodrop <- colMeans (ao, dims = d, drop = FALSE)
+    checkEquals (dimnames (nodrop) [(d + 1) : ndim (nodrop)],
+                 dimnames (ao)     [(d + 1) : ndim (ao)    ])
+  }
+}
+
 .unclasscolMeans <- function (x, ...) {
   colMeans (unclass (x), ...)
 }
@@ -109,7 +117,10 @@
         dimnames(z) <- dimnames(x)[1L:dims]
     } else  names(z) <- dimnames(x)[[1L]]
     } else {
+      dn [(dims + 1L) : length (dn)] <- 1L
+
       dim(z) <- dn
+
       dimnames(z) <- dimnames(x)
     }
     z
