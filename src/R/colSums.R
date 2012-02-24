@@ -68,62 +68,27 @@
   z
 }
 
-.test (.colMeans) <- function (){
-  ao <- array (1:24, 4:2)
-  
-  for (d in 1 : 2){
-    default <- base::colMeans (a, dims = d)
-    drop <- colMeans (a, dims = d, drop = TRUE)
-    nodrop <- colMeans (a, dims = d, drop = FALSE)
-
-    checkEquals (default, drop, sprintf ("base version ./. drop = TRUE, dim = %i", d))
-    checkEqualsNumeric (c (default), c (nodrop), sprintf ("drop = TRUE ./. FALSE, dim = %i", d))
-
-    dd <- dim (default)
-    if (is.null (dd)) dd <- length (default)
-    checkEquals (dim (nodrop) [-(1 : d)], dd, sprintf ("result dimensions, d = %i", d))
-    checkTrue (all (sapply (dimnames (nodrop) [1 : d], is.null)))
-    checkEquals (dimnames (nodrop) [(d + 1) : ndim (nodrop)],
-                 dimnames (a)      [(d + 1) : ndim (a)     ])
-    nodrop <- colMeans (ao, dims = d, drop = FALSE)
-    checkEquals (dimnames (nodrop) [(d + 1) : ndim (nodrop)],
-                 dimnames (ao)     [(d + 1) : ndim (ao)    ])
-  }
-}
-
 .unclasscolMeans <- function (x, ...) {
   colMeans (unclass (x), ...)
 }
 
-.rowSums <- function(x, na.rm = FALSE, dims = 1L, drop = TRUE)
-{
-    if(is.data.frame(x)) x <- as.matrix(x)
-    if(!is.array(x) || length(dn <- dim(x)) < 2L)
-        stop("'x' must be an array of at least two dimensions")
-    if(dims < 1L || dims > length(dn) - 1L)
-        stop("invalid 'dims'")
-    p <- prod(dn[-(1L:dims)])
+.rowSums <- function(x, na.rm = FALSE, dims = 1L, drop = TRUE) {
+  if (length (dim (x)) < 2)
+    x <- as.matrix (x)
 
-    dn [(dims + 1L) : length (dn)] <- 1L
+  z <- base:::rowSums (x, na.rm = na.rm, dims = dims)
 
-    z <- if(is.complex(x))
-        .Internal(rowSums(Re(x), prod(dn), p, na.rm)) +
-            1i * .Internal(rowSums(Im(x), prod(dn), p, na.rm))
-    else .Internal(rowSums(x, prod(dn), p, na.rm))
-
-    if (drop){
-      if(dims > 1L) {
-        dim(z) <- dn [1L:dims]
-        dimnames(z) <- dimnames(x)[1L:dims]
-    } else  names(z) <- dimnames(x)[[1L]]
-    } else {
-      dn [(dims + 1L) : length (dn)] <- 1L
-
-      dim(z) <- dn
-
-      dimnames(z) <- dimnames(x)
-    }
-    z
+  if (! drop){
+    d  <- dim (x)
+    d   [(dims + 1L) : length (d)] <- 1L
+    
+    dn <- dimnames (x)
+    dn [(dims + 1L) : length (dn)] <- list (NULL)
+    
+    z <- structure (z, .Dim =  d, .Dimnames = lon (dn))
+  }
+      
+  z
 }
 .unclassrowSums <- function (x, ...) {
   rowSums (unclass (x), ...)
@@ -131,30 +96,22 @@
 
 .rowMeans <- function(x, na.rm = FALSE, dims = 1L, drop = TRUE)
 {
-    if(is.data.frame(x)) x <- as.matrix(x)
-    if(!is.array(x) || length(dn <- dim(x)) < 2L)
-        stop("'x' must be an array of at least two dimensions")
-    if(dims < 1L || dims > length(dn) - 1L)
-        stop("invalid 'dims'")
-    p <- prod(dn[-(1L:dims)])
+  if (length (dim (x)) < 2)
+    x <- as.matrix (x)
 
-    dn [(dims + 1L) : length (dn)] <- 1L
+  z <- base:::rowMeans (x, na.rm = na.rm, dims = dims)
 
-    z <- if(is.complex(x))
-        .Internal(rowMeans(Re(x), prod(dn), p, na.rm)) +
-            1i * .Internal(rowMeans(Im(x), prod(dn), p, na.rm))
-    else .Internal(rowMeans(x, prod(dn), p, na.rm))
-
-    if (drop){
-      if(dims > 1L) {
-        dim(z) <- dn [1L:dims]
-        dimnames(z) <- dimnames(x)[1L:dims]
-    } else  names(z) <- dimnames(x)[[1L]]
-    } else {
-      dim(z) <- dn
-      dimnames(z) <- dimnames(x)
-    }
-    z
+  if (! drop){
+    d  <- dim (x)
+    d   [(dims + 1L) : length (d)] <- 1L
+    
+    dn <- dimnames (x)
+    dn [(dims + 1L) : length (dn)] <- list (NULL)
+    
+    z <- structure (z, .Dim =  d, .Dimnames = lon (dn))
+  }
+      
+  z
 }
 .unclassrowMeans <- function (x, ...) {
   rowMeans (unclass (x), ...)
