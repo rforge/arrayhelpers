@@ -2,7 +2,7 @@
 \alias{slice}
 \title{alternative to index an array}
 \usage{
-  slice(a, ...)
+  slice(a, ..., drop = TRUE)
 }
 \arguments{
   \item{a}{vector, matrix, or array}
@@ -11,6 +11,8 @@
   arguments specify the dimension (i = 1st, j = 2nd, ...).
   The indexing expressions are the same as for
   \code{\link[base]{[}}}
+
+  \item{drop}{see \code{\link[base]{[}}}
 }
 \value{
   array

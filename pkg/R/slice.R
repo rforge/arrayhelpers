@@ -5,12 +5,13 @@
 ##' @param a vector, matrix, or array
 ##' @param ... indexing instructions. The names of the arguments specify the dimension 
 ##'    (i = 1st, j = 2nd, ...). The indexing expressions are the same as for \code{\link[base]{[}}
+##' @param drop see \code{\link[base]{[}}
 ##' @return array
 ##' @author Claudia Beleites
 ##' @export 
 ##' @examples 
 ##' slice (arrayhelpers:::a, j = 3 : 2)
-slice <- function (a, ...){
+slice <- function (a, ..., drop = TRUE){
 	args <- as.list (rep (TRUE, ndim (a)))
 	
 	dots <- list (...)
@@ -18,11 +19,13 @@ slice <- function (a, ...){
 	
 	args [which] <- dots
 	
-	do.call (`[`, c (list (a), args))
+	do.call (`[`, c (list (a), args, list (drop = drop)))
 }
 
 .test (slice) <- function (){
 		checkEquals (slice (a, j = 3 : 2), a [, 3 : 2, ])
 		checkEquals (slice (a, j = LETTERS [3 : 2]), a [, 3 : 2, ])
 		checkEquals (slice (a, j = LETTERS [3 : 2], i = -2), a [-2, 3 : 2, ])
+
+      checkEquals (slice (a, j = 3, drop = FALSE), a [,3,,drop = FALSE])
 }
