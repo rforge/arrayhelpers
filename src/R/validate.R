@@ -23,7 +23,10 @@ arrayhelpers.unittest <- function (){
     runTest (tests [[t]], names (tests) [t])
 
   options (warn = warnlevel)
-  print (stats (Log()))
+  if (interactive ())
+    print (stats (Log()))
+  else
+    print (stats (Log ())[,c ("kind", "msg")])
 
   errorLog (summarize = FALSE)
   invisible (TRUE)
