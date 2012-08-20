@@ -1,0 +1,50 @@
+
+R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R ist freie Software und kommt OHNE JEGLICHE GARANTIE.
+Sie sind eingeladen, es unter bestimmten Bedingungen weiter zu verbreiten.
+Tippen Sie 'license()' or 'licence()' für Details dazu.
+
+R ist ein Gemeinschaftsprojekt mit vielen Beitragenden.
+Tippen Sie 'contributors()' für mehr Information und 'citation()',
+um zu erfahren, wie R oder R packages in Publikationen zitiert werden können.
+
+Tippen Sie 'demo()' für einige Demos, 'help()' für on-line Hilfe, oder
+'help.start()' für eine HTML Browserschnittstelle zur Hilfe.
+Tippen Sie 'q()', um R zu verlassen.
+
+> library ("arrayhelpers")
+Package arrayhelpers, version 0.76-20120816
+
+If you use this package please cite it appropriately.
+   citation("arrayhelpers")
+will give you the correct reference.
+
+The project homepage is http://arrayhelpers.r-forge.r-project.org/
+
+
+> arrayhelpers.unittest ()
+                   kind msg
+test(.rowMeans)      OK    
+test(makeNd)         OK    
+test(.rowSums)       OK    
+test(restoredim)     OK    
+test(ensuredim)      OK    
+test(array2df)       OK    
+test(delold)         OK    
+test(drop1d)         OK    
+test(groupsum)       OK    
+test(ta)             OK    
+test(slice)          OK    
+test(numericindex)   OK    
+test(ndim)           OK    
+test(.colMeans)      OK    
+test(.colSums)       OK    
+> 
+> 
+> proc.time()
+       User      System verstrichen 
+      0.516       0.256       0.403 

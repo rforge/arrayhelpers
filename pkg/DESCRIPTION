@@ -4,8 +4,8 @@ Title: Convenience functions for arrays
 Description: Some convenient functions to work with arrays
 Maintainer: C. Beleites <Claudia.Beleites@ipht-jena.de>
 Author: C. Beleites <Claudia.Beleites@ipht-jena.de>
-Version: 0.76-20120816
-Date: 2012-08-16
+Version: 0.76-20120820
+Date: 2012-08-20
 License: GPL
 LazyLoad: yes
 LazyData: yes
@@ -15,6 +15,7 @@ Suggests:
     svUnit
 URL: http://arrayhelpers.r-forge.r-project.org/
 Collate:
+    'unittestdata.R'
     'arrayhelpers.R'
     'apply.R'
     'array2df.R'
@@ -34,4 +35,4 @@ Collate:
     'slice.R'
     'stack.R'
     'ta.R'
-    'validate.R'
+    'unittests.R'
