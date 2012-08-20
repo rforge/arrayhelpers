@@ -8,6 +8,7 @@
     `.test<-` <- svUnit::`test<-`
   } else {
     `.test<-` <- function (f, value) {
+      class (value) <-  c ("svTest", "function")
       attr (f, "test") <- value
       f
     }
