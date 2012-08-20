@@ -4,7 +4,7 @@
 ##' 
 {
 
-  if (require (svUnit, quietly = TRUE)){
+  if (require ("svUnit", quietly = TRUE)){
     `.test<-` <- svUnit::`test<-`
   } else {
     `.test<-` <- function (f, value) {
