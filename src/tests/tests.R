@@ -1,3 +1,0 @@
-library ("arrayhelpers")
-arrayhelpers.unittest ()
-
