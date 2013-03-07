@@ -1,8 +1,11 @@
 \name{slice}
 \alias{slice}
+\alias{slice<-}
 \title{alternative to index an array}
 \usage{
   slice(a, ..., drop = TRUE)
+
+  slice (a, ...) <- value
 }
 \arguments{
   \item{a}{vector, matrix, or array}
@@ -11,6 +14,8 @@
   arguments specify the dimension (i = 1st, j = 2nd, ...).
   The indexing expressions are the same as for
   \code{\link[base]{[}}}
+
+  \item{value}{the values to assign}
 
   \item{drop}{see \code{\link[base]{[}}}
 }
@@ -25,6 +30,9 @@
 }
 \examples{
 slice (arrayhelpers:::a, j = 3 : 2)
+tmp <- arrayhelpers:::a
+slice (tmp, j = 2 : 3) <- 0
+tmp
 }
 \author{
   Claudia Beleites
