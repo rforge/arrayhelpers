@@ -27,7 +27,7 @@ check: build
 	R CMD check arrayhelpers_*.tar.gz
 
 install: 
-		sudo R CMD INSTALL pkg	
+		R CMD INSTALL pkg	
 
 test: install
 	Rscript --vanilla -e "library (arrayhelpers); arrayhelpers.unittest ()"
