@@ -16,7 +16,7 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library ("arrayhelpers")
-Package arrayhelpers, version 0.76-20160527
+Package arrayhelpers, version 1.0-20160527
 
 If you use this package please cite it appropriately.
    citation("arrayhelpers")
@@ -47,4 +47,4 @@ test(makeNd)         OK
 > 
 > proc.time()
    user  system elapsed 
-  0.312   0.132   0.411 
+  0.320   0.128   0.374 
