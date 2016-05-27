@@ -1,2 +1,4 @@
 *.Rcheck
 arrayhelpers_*.tar.gz
+.Rproj.user
+*.Rproj
