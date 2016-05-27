@@ -4,7 +4,7 @@
   if (length (dim (x)) < 2)
     x <- as.matrix (x)
 
-  z <- base:::colSums (x = x, na.rm = na.rm, dims = dims)
+  z <- base::colSums (x = x, na.rm = na.rm, dims = dims)
 
   if (! drop){
     d  <- dim (x)
@@ -52,7 +52,7 @@
   if (length (dim (x)) < 2)
     x <- as.matrix (x)
 
-  z <- base:::colMeans (x, na.rm = na.rm, dims = dims)
+  z <- base::colMeans (x, na.rm = na.rm, dims = dims)
 
   if (! drop){
     d  <- dim (x)
@@ -76,7 +76,7 @@
   if (length (dim (x)) < 2)
     x <- as.matrix (x)
 
-  z <- base:::rowSums (x, na.rm = na.rm, dims = dims)
+  z <- base::rowSums (x, na.rm = na.rm, dims = dims)
 
   if (! drop){
     d  <- dim (x)
@@ -99,7 +99,7 @@
   if (length (dim (x)) < 2)
     x <- as.matrix (x)
 
-  z <- base:::rowMeans (x, na.rm = na.rm, dims = dims)
+  z <- base::rowMeans (x, na.rm = na.rm, dims = dims)
 
   if (! drop){
     d  <- dim (x)

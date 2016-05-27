@@ -7,7 +7,8 @@
 ##' @note this function is subject to changes in the future.
 ##' @author Claudia Beleites
 ##' @rdname countrows
-##' 
+##' @importFrom utils head
+##' @importFrom utils tail
 countRows <- function(x) {
 ## TODO: derive matrix function
 ## TODO: generalize to nd arrays

@@ -6,8 +6,9 @@
 ##' @author Claudia Beleites
 ##' @seealso  \link[svUnit]{svUnit} 
 ##' @export 
+##' @import svUnit
 arrayhelpers.unittest <- function (){
-  if (! require ("svUnit", quietly = TRUE)){
+  if (! requireNamespace ("svUnit", quietly = TRUE)){
     warning ("svUnit required to run the unit tests.")
     return (NA)
   }

@@ -1,17 +1,17 @@
 Package: arrayhelpers
 Type: Package
 Title: Convenience functions for arrays
-Description: Some convenient functions to work with arrays
-Maintainer: C. Beleites <Claudia.Beleites@ipht-jena.de>
-Author: C. Beleites <Claudia.Beleites@ipht-jena.de>
-Version: 0.76-20130307
-Date: 2013-03-07
+Description: Some convenient functions to work with arrays.
+Maintainer: C. Beleites <claudia.beleites@chemometrix.eu>
+Author: C. Beleites <claudia.beleites@chemometrix.eu>
+Version: 0.76-20160527
+Date: 2016-05-27
 License: GPL
 LazyLoad: yes
 LazyData: yes
-Depends:
-    methods
-Suggests:
+Imports:
+    methods,
+    utils,
     svUnit
 URL: http://arrayhelpers.r-forge.r-project.org/
 Collate:
@@ -36,3 +36,4 @@ Collate:
     'stack.R'
     'ta.R'
     'unittests.R'
+RoxygenNote: 5.0.1

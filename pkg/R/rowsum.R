@@ -3,7 +3,7 @@
   x <- makeNd (x, 2)
   old <- attributes (x)
 
-  x <- base:::rowsum (x, group = group, reorder = reorder, na.rm = na.rm)
+  x <- base::rowsum (x, group = group, reorder = reorder, na.rm = na.rm)
 
   old$old [[1]]$dim [1] <- nrow (x)
   old$old [[1]]$dimnames [1] <- list (rownames (x))
