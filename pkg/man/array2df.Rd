@@ -4,8 +4,13 @@
 \alias{array2df}
 \title{array2df}
 \usage{
-array2df(x, levels, matrix = FALSE, label.x = deparse(substitute(x)),
-  na.rm = FALSE)
+array2df(
+  x,
+  levels,
+  matrix = FALSE,
+  label.x = deparse(substitute(x)),
+  na.rm = FALSE
+)
 }
 \arguments{
 \item{x}{\code{array}}
@@ -64,12 +69,11 @@ summary (array2df (a,
                    matrix = TRUE))
 
 }
-\author{
-Claudia Beleites
-}
 \seealso{
 \code{\link[utils]{stack}}
 }
+\author{
+Claudia Beleites
+}
 \keyword{array}
 \keyword{manip}
-

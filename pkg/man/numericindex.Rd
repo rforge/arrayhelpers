@@ -22,4 +22,3 @@ Convert character or logical indices to numeric
 \author{
 Claudia Beleites
 }
-

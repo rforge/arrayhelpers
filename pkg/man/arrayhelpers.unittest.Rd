@@ -13,10 +13,9 @@ available. Stops if errors are encountered.
 \description{
 Run the unit tests attached to the functions via \link[svUnit]{svUnit}
 }
-\author{
-Claudia Beleites
-}
 \seealso{
 \link[svUnit]{svUnit}
 }
-
+\author{
+Claudia Beleites
+}

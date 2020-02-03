@@ -13,4 +13,3 @@ C. Beleites
 Maintainer: Claudia Beleites <claudia.beleites@chemometrix.eu>
 }
 \keyword{package}
-

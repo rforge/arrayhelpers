@@ -2,18 +2,18 @@
 % Please edit documentation in R/colSums.R
 \docType{methods}
 \name{colSums,matrix-method}
-\alias{colMeans,array-method}
-\alias{colMeans,matrix-method}
-\alias{colMeans.AsIs}
-\alias{colSums,array-method}
 \alias{colSums,matrix-method}
 \alias{colSums.AsIs}
-\alias{rowMeans,array-method}
-\alias{rowMeans,matrix-method}
-\alias{rowMeans.AsIs}
-\alias{rowSums,array-method}
+\alias{colSums,array-method}
+\alias{colMeans,matrix-method}
+\alias{colMeans.AsIs}
+\alias{colMeans,array-method}
 \alias{rowSums,matrix-method}
 \alias{rowSums.AsIs}
+\alias{rowSums,array-method}
+\alias{rowMeans,matrix-method}
+\alias{rowMeans.AsIs}
+\alias{rowMeans,array-method}
 \title{Row and column sums and means for numeric arrays.}
 \usage{
 \S4method{colSums}{matrix}(x, na.rm = FALSE, dims = 1L, drop = TRUE)
@@ -78,13 +78,12 @@ colSums (a, dim = 2)
 colSums (a, dim = 2, drop = FALSE)
 
 }
-\author{
-Claudia Beleites
-}
 \seealso{
 \code{\link[base]{colSums}}
+}
+\author{
+Claudia Beleites
 }
 \keyword{algebra}
 \keyword{arith}
 \keyword{array}
-

@@ -33,4 +33,3 @@ Note: \code{pop} only removes elements. To retrieve them, use \code{peek}.
 \author{
 Claudia Beleites
 }
-

@@ -21,4 +21,3 @@ this function is subject to changes in the future.
 \author{
 Claudia Beleites
 }
-

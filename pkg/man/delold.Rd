@@ -26,4 +26,3 @@ delold (makeNd (a, 2))
 \author{
 Claudia Beleites
 }
-

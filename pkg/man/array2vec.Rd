@@ -48,12 +48,11 @@ arr [v]
 arr [i]
 
 }
-\author{
-C. Beleites
-}
 \seealso{
 see \code{\link[base]{Extract}} on the difference of indexing an
   \code{array} with a vector or a \code{matrix}.
 }
+\author{
+C. Beleites
+}
 \keyword{array}
-

@@ -7,8 +7,15 @@
 \usage{
 makeNd(a, N)
 
-restoredim(a, old = NULL, n = 1L, ..., usedim = TRUE, fromend = FALSE,
-  drop = FALSE)
+restoredim(
+  a,
+  old = NULL,
+  n = 1L,
+  ...,
+  usedim = TRUE,
+  fromend = FALSE,
+  drop = FALSE
+)
 }
 \arguments{
 \item{a}{an array (matrix, vector)}
@@ -91,4 +98,3 @@ Claudia Beleites
 
 Claudia Beleites
 }
-

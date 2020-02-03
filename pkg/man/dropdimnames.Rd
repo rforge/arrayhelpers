@@ -25,4 +25,3 @@ Drop dimnames if all elements are \code{NULL}
 \author{
 Claudia Beleites
 }
-

@@ -26,10 +26,9 @@ t (a)
 removeMethod ("t", "array")
 
 }
-\author{
-Claudia Beleites
-}
 \seealso{
 \code{\link[base]{t}}
 }
-
+\author{
+Claudia Beleites
+}

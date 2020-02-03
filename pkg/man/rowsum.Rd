@@ -24,13 +24,12 @@ like \code{\link[base]{rowsum}}, but further dimensions of the array are preserv
 \description{
 This function extends the base function \code{\link[base]{rowsum}}.
 }
-\author{
-Claudia Beleites
-}
 \seealso{
 \code{\link[base]{rowsum}}
+}
+\author{
+Claudia Beleites
 }
 \keyword{algebra}
 \keyword{arith}
 \keyword{array}
-
